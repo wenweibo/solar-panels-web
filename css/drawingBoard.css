@@ -1,0 +1,78 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+}
+/* 布局 */
+.content {
+    display: flex;
+    justify-content: center;
+    margin: 65px;
+}
+
+#myCanvas {
+    box-sizing: border-box;
+    background-color: pink;
+    border: 2px solid #000;
+}
+
+.tools {
+    background-color: #000;
+    color: #fff;
+    width: 60px;
+}
+
+.tools div {
+    margin: 3px;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 30px;
+}
+.tools div:hover{
+    border: 1px solid #fff;
+}
+
+/* 左侧文本按钮 */
+#text .text {
+    position: relative;
+    font-size: 40px;
+}
+
+#text .text span {
+    position: absolute;
+    left: 7px;
+    top: -3px;
+    font-size: 15px;
+}
+/* 撤销 & 清空的样式处理 */
+#before,
+#clear{
+    font-size: 15px;
+}
+/* 删除某项图标的位置 */
+#label_Eraser img{
+    padding-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

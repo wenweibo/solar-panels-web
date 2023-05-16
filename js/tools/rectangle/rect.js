@@ -157,7 +157,8 @@
       longWidth: `${Math.ceil(newWidth / 50)}(m)`,
       longHeight: `${Math.ceil(newHeight / 50)}(m)`,
     });
-
+    // 输出
+    alert(`宽度是：${Math.ceil(newWidth / 50)}(m)、高度是：${Math.ceil(newHeight / 50)}(m)`);
     // 结束
     rectObj.set({
       // 它指定是否在下一次渲染调用时重新渲染对象缓存。

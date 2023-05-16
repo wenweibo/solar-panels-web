@@ -2,10 +2,10 @@
 (function () {
 
     function rectOn() {
-        let canva = canvas.getObjects();
+        // let canva = canvas.getObjects();
         // console.log(canva);
         // 返回一个包含图片展示的 data URI 
-        var imgData = canvas.toDataURL({ format: 'png', quality: 1, width: 2000, height: 2000 });
+        var imgData = canvas.toDataURL({ format: 'png', quality: 1, width: 2000, height: 1000 });
 
         const link = document.createElement('a');
         link.download = 'image.png';

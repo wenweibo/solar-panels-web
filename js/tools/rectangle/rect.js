@@ -2,6 +2,28 @@
   function rectOn() {
     // 禁用所有对象
     canvas.getObjects().forEach(o => o.set('selectable', false));
+    // 点击矩形按钮加背景色
+    // alert(11)
+    console.log(Tools.list);
+    const rectbox = document.getElementById('label_Rect');
+    const rect = document.getElementById('Rect');
+
+    const sele = document.getElementById('label_Selector');
+    const out = document.getElementById('label_out');
+    function handleClick() {
+      if(rect.disabled === false){
+        rectbox.style.backgroundColor = "#fff";
+      }
+    }
+    sele.addEventListener('click', handleClick);
+    out.addEventListener('click', handleClick);
+
+    rectbox.addEventListener('click', function() {
+        if(rect.disabled === false){
+        rectbox.style.backgroundColor = "#41C6FF";
+      }
+      });
+
   }
   /* 
   * 【矩形】
@@ -159,6 +181,13 @@
     });
     // 输出
     alert(`宽度是：${Math.ceil(newWidth / 50)}(m)、高度是：${Math.ceil(newHeight / 50)}(m)`);
+    // 禁用按钮
+    // console.log(Tools);
+    const rectbox = document.getElementById('label_Rect');
+    const rect = document.getElementById('Rect');
+    rect.disabled = 'disabled';
+    rectbox.style.backgroundColor = "rgba(128, 128, 128,0.5)";
+    // console.dir(rectbox);
     // 结束
     rectObj.set({
       // 它指定是否在下一次渲染调用时重新渲染对象缓存。

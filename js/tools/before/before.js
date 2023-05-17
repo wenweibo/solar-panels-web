@@ -5,6 +5,7 @@
   function before() {
     // 先打印看看存图像的set数据（类似数组）
     console.log(canvas.getObjects());
+    console.log(canvas.getObjects().length);
     // 拿个变量接收set数据
     let arr = canvas.getObjects();
     // 剩余运算符
@@ -13,6 +14,14 @@
     canvas.renderAll();
     // 打印看结果
     console.log(canvas.getObjects());
+    // 判断set>=1，则解禁矩形按钮
+    if (canvas.getObjects().length === 0 ) {
+      const rectbox = document.getElementById('label_Rect');
+      const rect = document.getElementById('Rect');
+      // console.dir(rect);
+      rect.disabled = false;
+      rectbox.style.backgroundColor = "#fff";
+    }
   }
 
   function beforeOn() {

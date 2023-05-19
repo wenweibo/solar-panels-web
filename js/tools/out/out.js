@@ -6,10 +6,10 @@
         // console.log(canva);
         // 返回一个包含图片展示的 data URI 
 
-        var bWidth = prompt('请输入太阳能板宽度(cm)', '80');
-        if (bWidth > 0) {
-            var bHeight = prompt('请输入太阳能板长度(cm)', '80');
-            if (bHeight > 0) {
+        var bWidth = prompt('请输入太阳能板宽度(cm)，不小于10cm', '80');
+        if (bWidth >= 10) {
+            var bHeight = prompt('请输入太阳能板长度(cm)，不小于10cm', '80');
+            if (bHeight >= 10) {
                 var imgData = canvas.toDataURL({ format: 'png', quality: 1, width: 2000, height: 1000 });
                 var blob = dataURLtoBlob(imgData);
                 const formData = new FormData();
@@ -29,12 +29,13 @@
                 }
                 console.log(data)
 
-                window.location.href = 'preview.html?count=' + data.count + "&bWidth=" + bWidth + "&bHeight=" + bHeight
+                // window.location.href = 'preview.html?count=' + data.count + "&bWidth=" + bWidth + "&bHeight=" + bHeight
+                window.location.href = 'preview.html'
             } else {
-                alert("太阳能板长度必须大于0cm")
+                alert("太阳能板长度必须不小于10cm")
             }
         } else {
-            alert("太阳能板宽度必须大于0cm")
+            alert("太阳能板宽度必须不小于10cm")
         }
 
 

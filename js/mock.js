@@ -83,12 +83,12 @@ Tools.HTML = {
             };
 
             // 判断工具是否为提交/导出【可以一直点击的状态】
-            var callback02 = function () {
-                // 判断工具为撤销时
-                if (tool.name == "out") {
-                    tool.onstart();
-                }
-            };
+            // var callback02 = function () {
+            //     // 判断工具为撤销时
+            //     if (tool.name == "out") {
+            //         tool.onstart();
+            //     }
+            // };
 
             // 添加按钮【单选框】
             var input = $("<input>", {
@@ -102,7 +102,7 @@ Tools.HTML = {
             input.on("change", callback);
             input.on("click", callback1);
             // jQuery点击事件【点击out，切换工具】
-            input.on("click", callback02);
+            // input.on("click", callback02);
             // 创建label标签
             var label = $("<label></label>", {
                 "class": "tool_btn",

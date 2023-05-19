@@ -1,18 +1,50 @@
 
 (function () {
 
-    function rectOn() {
+    async function rectOn() {
         // let canva = canvas.getObjects();
         // console.log(canva);
         // 返回一个包含图片展示的 data URI 
-        var imgData = canvas.toDataURL({ format: 'png', quality: 1, width: 2000, height: 1000 });
 
-        const link = document.createElement('a');
-        link.download = 'image.png';
-        link.href = imgData;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        var bWidth = prompt('请输入太阳能板宽度(cm)', '80');
+        if (bWidth > 0) {
+            var bHeight = prompt('请输入太阳能板长度(cm)', '80');
+            if (bHeight > 0) {
+                var imgData = canvas.toDataURL({ format: 'png', quality: 1, width: 2000, height: 1000 });
+                var blob = dataURLtoBlob(imgData);
+                const formData = new FormData();
+                formData.append('image', blob);
+                formData.append('width', window.rectWidth);
+                formData.append('bWidth', bWidth);
+                formData.append('bHeight', bHeight);
+                // formData.append('height', window.rectHeight);
+                const response = await fetch('/detect-vegetable', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+                if ('error' in data) {
+                    window.alert(data.error);
+                    return;
+                }
+                console.log(data)
+
+                window.location.href = 'preview.html?count=' + data.count + "&bWidth=" + bWidth + "&bHeight=" + bHeight
+            } else {
+                alert("太阳能板长度必须大于0cm")
+            }
+        } else {
+            alert("太阳能板宽度必须大于0cm")
+        }
+
+
+
+        // const link = document.createElement('a');
+        // link.download = 'image.png';
+        // link.href = imgData;
+        // document.body.appendChild(link);
+        // link.click();
+        // document.body.removeChild(link);
 
         // console.log(imgData);
         // 截取字符串
@@ -31,14 +63,14 @@
         // link.download = "grid1.png";
         // link.href = objurl;
 
-        // function dataURLtoBlob(dataurl) {
-        //     var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
-        //         bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
-        //     while (n--) {
-        //         u8arr[n] = bstr.charCodeAt(n);
-        //     }
-        //     return new Blob([u8arr], { type: mime });
-        // }
+        function dataURLtoBlob(dataurl) {
+            var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+                bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+            while (n--) {
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new Blob([u8arr], { type: mime });
+        }
 
 
 

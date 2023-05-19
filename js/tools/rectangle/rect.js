@@ -179,8 +179,10 @@
       longWidth: `${Math.ceil(newWidth / 50)}(m)`,
       longHeight: `${Math.ceil(newHeight / 50)}(m)`,
     });
+    window.rectWidth = Math.ceil(newWidth / 50);
+    window.rectHeight = Math.ceil(newHeight / 50);
     // 输出
-    alert(`宽度是：${Math.ceil(newWidth / 50)}(m)、高度是：${Math.ceil(newHeight / 50)}(m)`);
+    // alert(`宽度是：${Math.ceil(newWidth / 50)}(m)、高度是：${Math.ceil(newHeight / 50)}(m)`);
     // 禁用按钮
     // console.log(Tools);
     const rectbox = document.getElementById('label_Rect');

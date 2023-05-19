@@ -66,7 +66,7 @@ Tools.HTML = {
     addTool: function (toolName, toolIcon, toolIconHTML, oneTouch, tool) {
 
         if (!(tool.type && tool.type == "Settings")) {
-            // 单击工具图标时的处理
+            // 单击工具图标时的处理【可以一直点击的状态】
             var callback = function () {
                 // 判断工具为撤销时
                 if (tool.name != "before") {
@@ -81,6 +81,15 @@ Tools.HTML = {
                     tool.onstart();
                 }
             };
+
+            // 判断工具是否为提交/导出【可以一直点击的状态】
+            var callback02 = function () {
+                // 判断工具为撤销时
+                if (tool.name == "out") {
+                    tool.onstart();
+                }
+            };
+
             // 添加按钮【单选框】
             var input = $("<input>", {
                 type: "radio",
@@ -92,6 +101,8 @@ Tools.HTML = {
             // jQuery点击事件【点击input，切换工具】
             input.on("change", callback);
             input.on("click", callback1);
+            // jQuery点击事件【点击out，切换工具】
+            input.on("click", callback02);
             // 创建label标签
             var label = $("<label></label>", {
                 "class": "tool_btn",
@@ -493,7 +504,7 @@ function init() {
     // 指定canvas的大小
     canvas.setHeight(window.outerHeight);
     canvas.setWidth(window.outerWidth);
-    
+
     // tools_init();
     // changeTool();
 }

@@ -1,6 +1,6 @@
 
 (function () {
-
+    
     async function rectOn() {
         // let canva = canvas.getObjects();
         // console.log(canva);
@@ -37,31 +37,6 @@
             alert("太阳能板宽度必须大于0cm")
         }
 
-
-
-        // const link = document.createElement('a');
-        // link.download = 'image.png';
-        // link.href = imgData;
-        // document.body.appendChild(link);
-        // link.click();
-        // document.body.removeChild(link);
-
-        // console.log(imgData);
-        // 截取字符串
-        // var strDataURI = imgData.substr(22, imgData.length);
-        // console.log(strDataURI);
-        // // 转二进制
-        // var blob = dataURLtoBlob(imgData);
-        // console.log(blob);
-        // // 这个 URL 的生命周期和创建它的窗口中的 document 绑定
-        // var objurl = URL.createObjectURL(blob);
-        // console.log(objurl);
-
-        // // 得到按钮
-        // var link = document.getElementById('label_out');
-        // console.log(link);
-        // link.download = "grid1.png";
-        // link.href = objurl;
 
         function dataURLtoBlob(dataurl) {
             var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
@@ -123,4 +98,13 @@
     };
     Tools.add(out);
 
+    // 默认进入页面是out功能禁用状态
+    // console.log(canvas.getObjects());
+    let arrLength = canvas.getObjects().length;
+    if (arrLength === 0) {
+        const outbtn = document.getElementById('out');
+        const outLabel = document.getElementById('label_out');
+        outbtn.disabled = 'disabled';
+        outLabel.style.backgroundColor = "#BFBFBF";
+    }
 })();

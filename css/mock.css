@@ -142,3 +142,88 @@ body .item .mobile-console {
 /* .vernier span{
   font-size: 12px;
 } */
+
+/* 工具栏的说明 */
+/* .toolsIntroduce{
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 100px;
+  height: 175px;
+  border: 2px dashed #000;
+  background-color: #fff;
+  z-index: 100;
+}
+.toolsIntroduce>div{
+  display: flex;
+  margin: 10px 0;
+}
+.toolsIntroduce>div .pic{
+  background-color: pink;
+  width: 30px;
+  height: 30px;
+}
+.toolsIntroduce>div .txt{
+  background-color: skyblue;
+  line-height: 30px;
+} */
+/* 触摸工具栏显示div */
+#label_Selector{
+  position: relative;
+}
+#label_Selector:hover::after{
+  content: "せんたく";
+  color: #000;
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  left: 42px;
+  display: inline-block;
+  width: 100px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+#label_Rect:hover::after{
+  content: "長方形";
+  color: #000;
+  font-size: 20px;
+  position: absolute;
+  top: 41;
+  left: 51px;
+  display: inline-block;
+  width: 100px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+#label_before:hover::after{
+  content: "元に戻す";
+  color: #000;
+  font-size: 20px;
+  position: absolute;
+  top: 80;
+  left: 51px;
+  display: inline-block;
+  width: 100px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+#label_out:hover::after{
+  content: "送信";
+  color: #000;
+  font-size: 20px;
+  position: absolute;
+  top: 120;
+  left: 51px;
+  display: inline-block;
+  width: 100px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  border: 1px solid #ccc;
+}

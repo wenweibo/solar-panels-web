@@ -4,8 +4,8 @@
   // 撤回上一步方法
   function before() {
     // 先打印看看存图像的set数据（类似数组）
-    console.log(canvas.getObjects());
-    console.log(canvas.getObjects().length);
+    // console.log(canvas.getObjects());
+    // console.log(canvas.getObjects().length);
     // 拿个变量接收set数据
     let arr = canvas.getObjects();
     // 剩余运算符
@@ -13,9 +13,9 @@
     // 渲染方法（所有对canvas的修改，包括在其中添加删除对象，以及对象参数的修改，都需要调用渲染方法才能显示出来）
     canvas.renderAll();
     // 打印看结果
-    console.log(canvas.getObjects());
+    // console.log(canvas.getObjects());
     // 判断set>=1，则解禁矩形按钮
-    if (canvas.getObjects().length === 0 ) {
+    if (canvas.getObjects().length === 0) {
       const rectbox = document.getElementById('label_Rect');
       const rect = document.getElementById('Rect');
       // console.dir(rect);
@@ -44,6 +44,16 @@
           before();
         }
       }
+    }
+    // 判断set是否有东西，有则不禁用out，没有则禁用out
+    const outbtn = document.getElementById('out');
+    const outLabel = document.getElementById('label_out');
+    if (canvas.getObjects().length === 0) {
+      outbtn.disabled = 'disabled';
+      outLabel.style.backgroundColor = "#BFBFBF";
+    } else {
+      outbtn.disabled = false;
+      outLabel.style.backgroundColor = "#fff";
     }
   }
 
